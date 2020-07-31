@@ -64,8 +64,7 @@ function generatePage(data) {
     str += `* [Questions](#questions)
     `;
     let readmeStr = `# ${data.title} 
-    ![https://img.shields.io/github/license/${data.user}/${data.repo}]
-    (https://img.shields.io/github/license/${data.user}/${data.repo})
+    ![${data.repo}](https://img.shields.io/github/license/${data.user}/${data.repo})
     
     <https://${data.user}.github.io/${data.repo}>
     ## Description
@@ -95,7 +94,7 @@ function generatePage(data) {
     ## Tests
     ${data.instructions}
 
-    
+
     ## Questions 
     Contact [${data.user}](mailto:${data.email})`;
 
@@ -172,7 +171,7 @@ function init() {
             },
 
             {
-                type: "editor",
+                type: "input",
                 message: "Please enter your project description.",
                 name: "description",
                 validate: description => {
