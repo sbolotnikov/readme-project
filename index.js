@@ -56,45 +56,21 @@ function validateImage(str) {
 }
 
 function generatePage(data) {
-    let str = ""
+    let str = "\n"
     data.sectionChoice.forEach(el => {
-        str += `* [${el}](#${el.toLowerCase()})
-        `;
+        str += '* ['+el+'](#'+el.toLowerCase()+')\n'
     })
-    str += `* [Questions](#questions)
-    `;
-    let readmeStr = `# ${data.title} ![${data.repo}](https://img.shields.io/github/license/:${data.user}/:${data.repo})
+    str += '* [Questions](#questions)'+'\n';
+    let readmeStr = `# ${data.title} ![${data.repo}](https://img.shields.io/github/license/${data.user}/${data.repo})\n`;
     
-    ## Description
-    ${data.description}
-
-
-    ## Table of Contents
-     ${str}
-
-
-    ## Installation
-     ${data.installation}
-
-
-    ## Usage
-     ${data.usage_info}
-
-
-    ## Contributing
-    ${data.guidelines}
-
-
-    ## License
-    Licensed under ${data.license} License.
-
-
-    ## Tests
-    ${data.instructions}
-
-
-    ## Questions 
-    Contact [${data.user}](mailto:${data.email})`;
+   readmeStr+= '## Description \n'+data.description+'\n';
+   readmeStr+= '## Table of Contents'+str;
+   readmeStr+= '## Installation \n'+data.installation+'\n';
+   readmeStr+='## Usage \n'+data.usage_info+'\n';
+   readmeStr+='## Contributing \n'+data.guidelines+'\n';
+   readmeStr+='## License \n Licensed under '+data.license+' License. \n';
+   readmeStr+='## Tests \n'+data.instructions+'\n';
+   readmeStr+='## Questions \n Contact ['+data.user+'](mailto:'+data.email+')';
     // `<https://${data.user}.github.io/${data.repo}>`
     return readmeStr;
 }
@@ -155,7 +131,6 @@ function init() {
             {
                 type: "input",
                 message: "Enter your email address.",
-                default: "mike4506@gmail.com",
                 name: "email",
                 default: "sbolotnikov@gmail.com",
                 validate: email => {
@@ -414,9 +389,7 @@ function init() {
 
         ])
         .then(function (response) {
-            console.log(response);
             let readme = generatePage(response);
-            console.log(readme);
             fs.writeFile("README.md", readme, (er) => {
                 if (er) return console.log(er);
                 console.log('README completed...');
@@ -424,20 +397,4 @@ function init() {
 
         });
 }
-// var res={
-//     title: 'sdfcgvhjbnkml;',
-//     repo: 'readme-project', 
-//     user: 'sbolotnikov',    
-//     email: 'sbolotnikov@gmail.com',
-//     description: 'xcfgvhjkl;,kjhtygvfrc\r\ndsadzxfcgvhjbnkml;lkjhbtyfgvcrd',
-//     sectionChoice: [ 'Installation instructions' ],
-//     installation: "dfgvhjbnkml,;'.",
-//     install_picN: '0'
-//   }
-// var readme=generatePage(res);
-// console.log(readme);
-// fs.writeFile("README-out.md", readme, (er) => {
-//     if (er) return console.log(er);
-//     console.log('README completed...');
-// });
 init();
