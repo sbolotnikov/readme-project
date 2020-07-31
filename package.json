@@ -1,0 +1,22 @@
+{
+  "name": "readme-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sbolotnikov/readme-project.git"
+  },
+  "author": "Sergey Bolotnikov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sbolotnikov/readme-project/issues"
+  },
+  "homepage": "https://github.com/sbolotnikov/readme-project#readme",
+  "dependencies": {
+    "inquirer": "^7.3.3"
+  }
+}
