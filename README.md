@@ -1,10 +1,10 @@
-# Sergey Readme project ![https://img.shields.io/github/license/sbolotnikov/readme-project]
+# Sergey README project 
+    ![https://img.shields.io/github/license/sbolotnikov/readme-project]
     (https://img.shields.io/github/license/sbolotnikov/readme-project)
-
- <https://sbolotnikov.github.io/readme-project>
+    
+    <https://sbolotnikov.github.io/readme-project>
     ## Description
-
- What is Lorem Ipsum?
+    What is Lorem Ipsum?
 Lorem Ipsum is simply dummy text of the printing and typesetting industry.
  Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
  when an unknown printer took a galley of type and scrambled it to make a type
@@ -14,42 +14,34 @@ the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
 and more recently with desktop publishing software like Aldus PageMaker including 
 versions of Lorem Ipsum
 
-    ## Table of Contents
 
- * [Installation instructions](#installation instructions)
-* [Usage information](#usage information)
-* [License](#license)
+    ## Table of Contents
+     * [Installation](#installation)
+        * [Usage](#usage)
+        * [License](#license)
+        * [Questions](#questions)
+    
 
 
     ## Installation
-
- installation is not required
+     NO installation require
 
 
     ## Usage
+     use at your risk
 
- use as you pleased
 
-
-    ## Credits
-
-undefined
+    ## Contributing
+    undefined
 
 
     ## License
-
-
     Licensed under MIT License.
 
 
     ## Tests
+    undefined
 
-
-undefined
-
-
-
-    ## Questions
-
- 
+    
+    ## Questions 
     Contact [sbolotnikov](mailto:sbolotnikov@gmail.com)

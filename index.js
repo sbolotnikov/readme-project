@@ -58,20 +58,45 @@ function validateImage(str) {
 function generatePage(data) {
     let str = ""
     data.sectionChoice.forEach(el => {
-        str += `* [${el}](#${el.toLowerCase()})\n`;
+        str += `* [${el}](#${el.toLowerCase()})
+        `;
     })
-    str += '\n';
-    let readmeStr = `# ${data.title} ![https://img.shields.io/github/license/${data.user}/${data.repo}]
-    (https://img.shields.io/github/license/${data.user}/${data.repo})\n\n <https://${data.user}.github.io/${data.repo}>
-    ## Description\n\n ${data.description}\n
-    ## Table of Contents\n\n ${str}
-    ## Installation\n\n ${data.installation}\n\n
-    ## Usage\n\n ${data.usage_info}\n\n
-    ## Credits\n\n${data.guidelines}\n\n
-    ## License\n\n
-    Licensed under ${data.license} License.\n\n
-    ## Tests\n\n\n${data.instructions}\n\n\n
-    ## Questions\n\n 
+    str += `* [Questions](#questions)
+    `;
+    let readmeStr = `# ${data.title} 
+    ![https://img.shields.io/github/license/${data.user}/${data.repo}]
+    (https://img.shields.io/github/license/${data.user}/${data.repo})
+    
+    <https://${data.user}.github.io/${data.repo}>
+    ## Description
+    ${data.description}
+
+
+    ## Table of Contents
+     ${str}
+
+
+    ## Installation
+     ${data.installation}
+
+
+    ## Usage
+     ${data.usage_info}
+
+
+    ## Contributing
+    ${data.guidelines}
+
+
+    ## License
+    Licensed under ${data.license} License.
+
+
+    ## Tests
+    ${data.instructions}
+
+    
+    ## Questions 
     Contact [${data.user}](mailto:${data.email})`;
 
     return readmeStr;
@@ -163,8 +188,8 @@ function init() {
                 type: "checkbox",
                 message: "Please choose sections that you wish to incude in the README file",
                 name: "sectionChoice",
-                choices: [{ name: "Installation instructions", checked: true }, { name: "Usage information", checked: true },
-                { name: "Contribution guidelines", checked: true }, { name: "Test instructions", checked: true }, { name: "License", checked: true }],
+                choices: [{ name: "Installation", checked: true }, { name: "Usage", checked: true },
+                { name: "Contributing", checked: true }, { name: "Tests", checked: true }, { name: "License", checked: true }],
                 validate: (sectionChoice) => {
                     if (sectionChoice.length != 0) {
 
@@ -176,21 +201,21 @@ function init() {
             },
             {
                 type: "input",
-                message: "Please enter your project installation instructions.",
+                message: "Please enter your project INSTALLATION instructions.",
                 name: "installation",
                 validate: installation => {
                     if (installation.length < 10) {
-                        return "Installation instructions section is too short";
+                        return "Installation section is too short";
                     }
                     else {
                         return true;
                     }
                 },
-                when: function (response) { return response.sectionChoice.indexOf("Installation instructions") >= 0 }
+                when: function (response) { return response.sectionChoice.indexOf("Installation") >= 0 }
             },
             {
                 type: "input",
-                message: "How many images are needed for the Installation section",
+                message: "How many images are needed for the INSTALLATION section",
                 name: "install_picN",
                 validate: install_picN => {
                     if (isNaN(install_picN)) {
@@ -203,7 +228,7 @@ function init() {
                         return true;
                     }
                 },
-                when: function (response) { return response.sectionChoice.indexOf("Installation instructions") >= 0 }
+                when: function (response) { return response.sectionChoice.indexOf("Installation") >= 0 }
             },
             {
                 type: "input",
@@ -221,24 +246,24 @@ function init() {
             },
             {
                 type: "input",
-                message: "Please enter project usage information.",
+                message: "Please enter project USAGE information.",
                 name: "usage_info",
                 validate: usage_info => {
                     if (usage_info.length < 10) {
-                        return "Usage information section is too short";
+                        return "USAGE section is too short";
                     }
                     else if (usage_info.length > 500) {
-                        return "Usage information section is too long";
+                        return "USAGE section is too long";
                     }
                     else {
                         return true;
                     }
                 },
-                when: function (response) { return response.sectionChoice.indexOf("Usage information") >= 0 }
+                when: function (response) { return response.sectionChoice.indexOf("Usage") >= 0 }
             },
             {
                 type: "input",
-                message: "How many images are needed for the usage information section",
+                message: "How many images are needed for the USAGE section",
                 name: "usage_picN",
                 validate: usage_picN => {
                     if (isNaN(usage_picN)) {
@@ -251,7 +276,7 @@ function init() {
                         return true;
                     }
                 },
-                when: function (response) { return response.sectionChoice.indexOf("Usage information") >= 0 }
+                when: function (response) { return response.sectionChoice.indexOf("Usage") >= 0 }
             },
             {
                 type: "input",
@@ -269,24 +294,24 @@ function init() {
             },
             {
                 type: "input",
-                message: "Please enter project contribution guidelines.",
+                message: "Please enter project CONTRIBUTING section.",
                 name: "guidelines",
                 validate: guidelines => {
-                    if (guidelines.length < 10) {
-                        return "Contribution guidelines section is too short";
+                    if (guidelines.length < 4) {
+                        return "CONTRIBUTING section is too short";
                     }
                     else if (guidelines.length > 500) {
-                        return "Contribution guidelines section is too long";
+                        return "CONTRIBUTING section is too long";
                     }
                     else {
                         return true;
                     }
                 },
-                when: function (response) { return response.sectionChoice.indexOf("Contribution guidelines") >= 0 }
+                when: function (response) { return response.sectionChoice.indexOf("Contributing") >= 0 }
             },
             {
                 type: "input",
-                message: "How many images are needed for the contribution guidelines section",
+                message: "How many images are needed for the CONTRIBUTING section",
                 name: "guidelines_picN",
                 validate: guidelines_picN => {
                     if (isNaN(guidelines_picN)) {
@@ -299,7 +324,7 @@ function init() {
                         return true;
                     }
                 },
-                when: function (response) { return response.sectionChoice.indexOf("Contribution guidelines") >= 0 }
+                when: function (response) { return response.sectionChoice.indexOf("Contributing") >= 0 }
             },
             {
                 type: "input",
@@ -317,20 +342,20 @@ function init() {
             },
             {
                 type: "input",
-                message: "Please enter project test instructions.",
+                message: "Please enter project TESTS section.",
                 name: "instructions",
                 validate: instructions => {
-                    if (instructions.length < 10) {
-                        return "Test instructions section is too short";
+                    if (instructions.length < 4) {
+                        return "TESTS section is too short";
                     }
                     else if (instructions.length > 500) {
-                        return "Test instructions section is too long";
+                        return "TESTS section is too long";
                     }
                     else {
                         return true;
                     }
                 },
-                when: function (response) { return response.sectionChoice.indexOf("Test instructions") >= 0 }
+                when: function (response) { return response.sectionChoice.indexOf("Tests") >= 0 }
             },
 
 
@@ -350,7 +375,7 @@ function init() {
                         return true;
                     }
                 },
-                when: function (response) { return response.sectionChoice.indexOf("Test instructions") >= 0 }
+                when: function (response) { return response.sectionChoice.indexOf("Tests") >= 0 }
             },
             {
                 type: "input",
