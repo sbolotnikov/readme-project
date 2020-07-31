@@ -395,7 +395,7 @@ function init() {
             console.log(response);
             let readme = generatePage(response);
             console.log(readme);
-            fs.writeFile("README-out.md", readme, (er) => {
+            fs.writeFile("README.md", readme, (er) => {
                 if (er) return console.log(er);
                 console.log('README completed...');
             });
