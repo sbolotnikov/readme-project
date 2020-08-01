@@ -113,7 +113,7 @@ function init() {
                 name: "repo",
                 default: "readme-project",
                 validate: repo => {
-                    let alphaExp = /^[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,39}$/i
+                    let alphaExp = /^[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,39}$/i;
                     if (!repo.match(alphaExp)) {
                         return "Use alphanumeric characters or hyphens.No consecutive hyphens.No begin or end with a hyphen. Max length 40";
                     } else {
