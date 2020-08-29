@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Results </h1>
+
+    <script>
+        function findString(letter, str) {
+            for (let i = 0; i < str.length; i++) {
+                if (letter === str[i]) {
+                    return true
+                }
+            }
+            return false;
+        }
+
+        function wordInWord(word1, word2) {
+            for (let i = 0; i < word1.length; i++) {
+                // alert(findString(word1[i], word2))
+                if (findString(word1[i], word2) === false) {
+                    return false
+                }
+            }
+            return true
+        }
+        alert(wordInWord('ash', 'trap'))
+    </script>
+</body>
+
+</html>
